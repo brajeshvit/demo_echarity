@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="#">
+				
+        {% if post.created_date %}
+            <div class="#">
+				<h1>{{ post.title }}</h1>
+                
+            </div>
+            <a href="{% url "change_image" image_id=instance.pk %}">
+                <img alt="{{ post.title }}" src="{{ MEDIA_URL }}{{ post.image.name }}" /><br/><br/>
+            </a>
+            <h1><lable>updated_date</lable></h1><br>
+            {{ post.updated_date }}<br>
+            <h1><lable>expiry_date</lable></h1><br>
+            {{ post.expiry_date }}<br>
+            <h1><lable>address</lable></h1><br>
+            {{ post.address }}<br>
+        {% endif %}
+         <h1><lable>create_date</lable></h1><br>
+          {{ post.created_date }}<br>
+        <p>{{ post.text|linebreaks }}</p>
+    </div>
+{% endblock %}

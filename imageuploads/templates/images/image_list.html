@@ -5,13 +5,15 @@
 {% block title %}{% trans "Images" %}{% endblock %}
 
 {% block content %}
-    <h1>{% trans "Images" %}</h1>
-    <p>
-        {% for instance in images %}
-            <a href="{% url "change_image" image_id=instance.pk %}">
-                <img alt="{{ instance.title }}" src="{{ MEDIA_URL }}{{ instance.image.name }}" />
+    <h1>{% trans "ItemList" %}</h1>
+    <h2>
+        {% for Product in images %}
+             <h1><a href="{% url 'post_detail' pk=Product.pk %}"> {{ Product.title }}</a></h1>
+               <br/>
+            <a href="{% url 'post_detail' pk=Product.pk %}">
+                <img alt="{{ Product.title }}" src="{{ MEDIA_URL }}{{ Product.image.name }}" /><br/><br/>
             </a>
         {% endfor %}
-    </p>
-    <p><a href="{% url "add_image" %}">{% trans "Add image" %}</a></p>
+    
+    <a href="{% url "add_image" %}">{% trans "AddItems" %}</a></h2>
 {% endblock %}

@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^$', 'images.views.image_list', name='image_list'),
     url(r'^images/(?P<image_id>\d*)/$', 'images.views.image_upload', name='change_image'),
     url(r'^images/add/$', 'images.views.image_upload', name='add_image'),
+    url(r'^post/(?P<pk>[0-9]+)/$', 'images.views.post_detail', name='post_detail'),
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
 )

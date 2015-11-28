@@ -7,13 +7,19 @@ from django.template.defaultfilters import slugify
 from django.conf import settings
 from django.core.files import File
 
-from models import Image
+from models import Product
 from forms import ImageForm
+from django.shortcuts import render, get_object_or_404
 
 
 def image_list(request):
-    images = Image.objects.all()
+    images = Product.objects.all()
     return render(request, "images/image_list.html", {'images': images})
+    
+def post_detail(request, pk):    
+    post = get_object_or_404(Product, pk=pk)
+    return render(request, 'images/items_detail.html', {'post': post})
+      
 
 
 def image_upload(request, image_id=None):

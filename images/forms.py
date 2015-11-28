@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from crispy_forms.helper import FormHelper
 from crispy_forms import layout, bootstrap
 
-from models import Image
+from models import Product
 
 
 class ImageForm(forms.ModelForm):
@@ -21,8 +21,8 @@ class ImageForm(forms.ModelForm):
     )
 
     class Meta:
-        model = Image
-        fields = ["title"]
+        model = Product
+        fields = ["title", "quentity", "image", "zipcode", "discription", "created_date", "updated_date", "expiry_date", "address",]
 
     def __init__(self, *args, **kwargs):
         super(ImageForm, self).__init__(*args, **kwargs)
@@ -34,7 +34,7 @@ class ImageForm(forms.ModelForm):
         self.helper.layout = layout.Layout(
             layout.Fieldset(
                 _("Image form"),
-                "title",
+                "title", "quentity", "image", "zipcode", "discription", "created_date", "updated_date", "expiry_date","address",
                 layout.HTML(u"""{% load i18n %}
                     <div id="image_upload_widget">
                         <div class="preview">
